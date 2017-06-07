@@ -1,59 +1,72 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>RegEx Finder</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- <link rel="shortcut icon" href="favicon.ico"> -->
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
-		<!--[if lt IE 9]>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-		<![endif]-->
-		<link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		
-		<header>
-			<h2><a href=".">RegEx Finder App</a></h2>
-			<p>Find the RegEx results in your text!</p>
-		</header>
-		
-		<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>RegEx Finder</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="favicon.png">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+	<![endif]-->
+	<link href='//fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<header>
+		<h2><a href=".">RegEx Finder App</a></h2>
+		<p>Find the RegEx results in your text!</p>
+	</header>
+
+	<div class="container">
+		<form id="rgx-form">
 			<div class="row">
-				<label for="regex-input">RegEx:</label>
-				<input type="text" name="regex-input" id="regex-input">
-				<small>Don't include attributes! ('input' becomes '/input/g')</small>
+				<label for="rgx-input">Pattern:
+					<span id="rgx-info" class="info"></span>
+				</label>
+				<input type="text" id="rgx-input" name="rgx-input">
+				<small>Don't include flags! ("input" becomes "/input/g")
+				</small>
+			</div>
+			<div class="row">
+				<label>Flags:</label>
+				<ul>
+					<li><input type="checkbox" id="rgx-arg-g" checked disabled>Global search</li>
+					<li><input type="checkbox" id="rgx-arg-i" checked>Case-insensitive</li>
+					<li><input type="checkbox" id="rgx-arg-m">Multi-line search</li>
+					<li><input type="checkbox" id="rgx-arg-u">Unicode - treat pattern as sequence of unicode points<br><small><em>May not work on older browsers!</em></small></li>
+				</ul>
 			</div>
 			<br>
 			<div class="row">
-				<label for="test-text">Text to run against:</label>
-				<textarea name="test-text" id="test-text" cols="30" rows="10"></textarea>
+				<label for="test-text">Text to run against:
+					<span id="text-info" class="info"></span>
+				</label>
+				<textarea name="test-text" id="rgx-text" cols="30" rows="10"></textarea>
+				<input type="submit" id="rgx-submit" value="Execute RegEx">
 			</div>
-			<div class="row">
-				<button id="test-btn">Test</button>
-			</div>
-			<div class="row">
-				<label for="result-text">
-					Result: 
-					<span id="result-info">
-						<span id="result-regex"></span>
-						<span id="result-num"></span>
-					</span>
-				</label><br>
-				<div name="result-text" id="result-text-container">
-					<pre id="result-text"></pre>
-				</div>
-			</div>
+		</form>
+		<div class="row">
+			<label for="result-text">Result:
+				<span id="result-info" class="info">
+					<span id="result-rgx"></span>
+					<span id="result-num"></span>
+				</span>
+			</label>
+			<div name="result-text" id="result-text"></div>
 		</div>
-				
-		<footer>
-			inspired by <a href="http://youmightnotneedjquery.com/" target="_blank">You Might Not Need jQuery</a> - made by <a href="https://github.com/thavixt" target="_blank">thavixt</a>
-		</footer>		
-		
-		<script src="js/main.js"></script>
-	</body>
+	</div>
+
+	<footer>
+		<p>made by <a href="https://github.com/thavixt" target="_blank">thavixt</a></p>
+		<p>inspired by <a href="http://youmightnotneedjquery.com/" target="_blank">You Might Not Need jQuery</a></p>
+	</footer>		
+
+	<script src="js/main.js"></script>
+</body>
 </html>
