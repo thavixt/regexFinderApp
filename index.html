@@ -15,42 +15,57 @@
 	<link href='//fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link id="theme" rel="stylesheet" href="css/light.css">
 </head>
 <body>
 
+	<button id="change-theme-btn">change<br>theme</button>
+	
 	<header>
 		<h2><a href=".">RegEx Finder App</a></h2>
-		<p>Find the RegEx results in your text!</p>
+		<p>Finding the RegEx matches in your bacon since 2017</p>
 	</header>
 
 	<div class="container">
-		<form id="rgx-form">
-			<div class="row">
-				<label for="rgx-input">Pattern:
-					<span id="rgx-info" class="info"></span>
-				</label>
-				<input type="text" id="rgx-input" name="rgx-input">
-				<small>Don't include flags! ("input" becomes "/input/g")
-				</small>
-			</div>
-			<div class="row">
-				<label>Flags:</label>
-				<ul>
-					<li><input type="checkbox" id="rgx-arg-g" checked disabled>Global search</li>
-					<li><input type="checkbox" id="rgx-arg-i" checked>Case-insensitive</li>
-					<li><input type="checkbox" id="rgx-arg-m">Multi-line search</li>
-					<li><input type="checkbox" id="rgx-arg-u">Unicode - treat pattern as sequence of unicode points<br><small><em>May not work on older browsers!</em></small></li>
-				</ul>
-			</div>
+		
+		<div class="row">
+			<label for="rgx-input">Pattern:
+				<span id="rgx-input-info" class="info"></span>
+			</label>
+			<input type="text" id="rgx-input" name="rgx-input">
+			<small>Don't include flags! (example: "input" becomes "/input/g")
+			</small>
+		</div>
+
+		<div class="row">
+			<label>Flags:</label>
+			<ul>
+				<li><input type="checkbox" id="rgx-arg-g" checked disablesd>Global search</li>
+				<li><input type="checkbox" id="rgx-arg-i" checked>Case-insensitive</li>
+				<li><input type="checkbox" id="rgx-arg-m">Multi-line search</li>
+				<li><input type="checkbox" id="rgx-arg-u">Unicode - treat pattern as sequence of unicode points<br><small><em>May not work on older browsers!</em></small></li>
+			</ul>
+		</div>
+
+		<div class="row">
 			<br>
-			<div class="row">
-				<label for="test-text">Text to run against:
-					<span id="text-info" class="info"></span>
-				</label>
-				<textarea name="test-text" id="rgx-text" cols="30" rows="10"></textarea>
-				<input type="submit" id="rgx-submit" value="Execute RegEx">
-			</div>
-		</form>
+			<label for="rgx-text">Text:
+				<span id="text-info" class="info"></span>
+			</label>
+			<textarea name="text" id="text" cols="30" rows="10"></textarea>
+		</div>
+		
+		<div class="row bacon">
+			<label for="text-bacon-len" id="text-bacon-len-num"></label>
+			<input type="range" min="1" max="10" value="2" name="text-bacon-len" id="text-bacon-len">
+			<button id="text-bacon">Give me bacon</button>
+			<small><em>May not work on older browsers!</em></small>
+		</div>
+		
+		<div class="row">
+			<button id="rgx-submit">Execute RegEx</button>
+		</div>
+			
 		<div class="row">
 			<label for="result-text">Result:
 				<span id="result-info" class="info">
@@ -60,6 +75,7 @@
 			</label>
 			<div name="result-text" id="result-text"></div>
 		</div>
+		
 	</div>
 
 	<footer>

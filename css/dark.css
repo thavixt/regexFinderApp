@@ -1,0 +1,7 @@
+:root {
+	--text: white;
+	--accent: #DC1639;
+	--bg: darkgrey;
+	--result-bg: rgba(200,200,200,0.8);
+	--border: whitesmoke;
+}
