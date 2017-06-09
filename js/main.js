@@ -195,16 +195,19 @@ function eraseCookie(name) {
 
 // get cookies & set preferences
 function getPrefs() {
-	themeHref.href = 'css/' + readCookie('theme') + '.css';
+	// theme
+	if(readCookie('theme') == 'dark') themeHref.href = 'css/dark.css';
+	// bacon length & last regex pattern
 	setTextLen.value = readCookie('bacon');
 	rgxInput.value = readCookie('rgx');
+	// regex args
 	if(readCookie('args').match(/g/)) rgxArgGlobal.checked = true;
 	if(readCookie('args').match(/i/)) rgxArgCase.checked = true;
 	if(readCookie('args').match(/m/)) rgxArgMultiLine.checked = true;
 	if(readCookie('args').match(/u/)) rgxArgUnicode.checked = true;
-	if(readCookie('text') == 'bacon') {
-		getText();
-	} else getExpertText();
+	// last generated text type
+	if(readCookie('text') == 'bacon') getText();
+	else getExpertText();
 }
 
 // event listeners
