@@ -1,7 +1,9 @@
 :root {
-	--text: white;
-	--accent: #DC1639;
-	--bg: darkgrey;
-	--result-bg: rgba(200,200,200,0.8);
-	--border: whitesmoke;
+	--text: rgba(255,255,255,0.8);
+	--accent: #0fa0ce;
+	--bg: #222;
+	--input-bg: #333;
+	--result-bg: #333;
+	--border: #f1f1f1;
+	--btn-border: #bbb;
 }

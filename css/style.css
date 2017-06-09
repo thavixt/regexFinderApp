@@ -45,10 +45,14 @@ footer p {
 a {
 	text-decoration: none;
 	color: inherit;
-	text-shadow: 0px 0px 1px grey;
+	text-shadow: 0px 0px 1px var(--text);
 }
-a:hover {
+header a {
+	text-shadow: 0px 0px 5px var(--text);
+}
+a:hover, a:active {
 	color: var(--accent);
+	text-shadow: 0px 0px 5px var(--accent);
 }
 
 ul {
@@ -83,17 +87,33 @@ textarea {
 	font-family: inherit;
 }
 
+input[type='text'], textarea {
+	background-color: var(--input-bg);
+	border-color: var(--border);
+	color: var(--text);
+}
+input[type='text']:focus, textarea:focus {
+	outline: none !important;
+	border-color: var(--border)!important;
+}
+
 button {
 	margin: 0 auto;
 	display: block;
 	margin-top: 1em;
 	margin-bottom: 0.5em;
+	white-space: pre;
 	color: var(--text);
+	border-color: var(--btn-border);
 }
 button ~ small {
 	text-align: center;
 	display: block;
 	margin-bottom: 3em;
+}
+button:hover, button:active, button:focus {
+	color: var(--accent);
+	border-color: var(--accent);
 }
 
 .bacon label {
@@ -103,9 +123,6 @@ button ~ small {
 .bacon input[type='range'] {
 	margin: auto;
 	display: block;
-}
-.bacon button {
-	white-space: pre;
 }
 
 #result-info {
@@ -122,16 +139,20 @@ button ~ small {
 	border-radius: 4px;
 	box-shadow: none;
 	white-space: pre-line;
+	word-break: break-word;
 }
 strong {
 	color: var(--accent);
 	font-family: monospace;
 	font-size: 1.5em;
-	line-height: 1em;
+	line-height: 1px;
 	cursor: pointer;
+	padding: 0px 2px;
 }
 strong:hover {
-	color: black;
+	border: 1px solid var(--accent);
+	border-radius: 2px;
+	padding: 0px 1px;
 }
 
 .warning {
@@ -140,13 +161,14 @@ strong:hover {
 
 #change-theme-btn {
 	position: absolute;
-	top: 0;
+	top: -5px;
 	right: 0;
 	margin: 0;
 	padding: 0;
 	border: none;
-	line-height: 1.5em;
+	line-height: 1em;
 	text-transform: none;
+	color: var(--text);
 }
 #change-theme-btn:hover {
 	color: var(--accent);

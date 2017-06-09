@@ -2,6 +2,8 @@
 	--text: #222;
 	--accent: #DC1639;
 	--bg: whitesmoke;
+	--input-bg: rgba(200,200,200,0.1);
 	--result-bg: rgba(200,200,200,0.1);
 	--border: #D1D1D1;
+	--btn-border: #bbb;
 }
